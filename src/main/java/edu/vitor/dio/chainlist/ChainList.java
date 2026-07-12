@@ -23,6 +23,25 @@ public class ChainList<T> {
         nodeAuxiliar.setNextNode(newNode);
     }
 
+    private Node<T> getNode(int index){
+
+        indexValidation(index);
+        Node<T> nodeAuxiliar = referenceEntry;
+        Node<T> returnNode = null;
+        for (int i = 0; i < this.size(); i++) {
+            returnNode = nodeAuxiliar;
+            nodeAuxiliar = nodeAuxiliar.getNextNode();
+        }
+        return returnNode;
+    }
+
+    private void indexValidation(int index){
+        if (index >= size()){
+            int lastIndex = size() - 1;
+            throw new IndexOutOfBoundsException("Não existe conteudo no indice " + index + " desta lista. Esta lista só vai até o indice " + lastIndex + ".");
+        }
+    }
+
     public int size(){
         int tamanhoLista = 0;
         Node<T> referenceAux = referenceEntry;
