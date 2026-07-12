@@ -8,6 +8,21 @@ public class ChainList<T> {
         this.referenceEntry = null;
     }
 
+    public void add(T conteudo){
+        Node<T> newNode = new Node<>(conteudo);
+        if(this.isEmpty()){
+            referenceEntry = newNode;
+            return;
+        }
+
+        Node<T> nodeAuxiliar = referenceEntry;
+        for (int i = 0; i < this.size() ; i++) {
+            nodeAuxiliar = nodeAuxiliar.getNextNode();
+        }
+
+        nodeAuxiliar.setNextNode(newNode);
+    }
+
     public int size(){
         int tamanhoLista = 0;
         Node<T> referenceAux = referenceEntry;
