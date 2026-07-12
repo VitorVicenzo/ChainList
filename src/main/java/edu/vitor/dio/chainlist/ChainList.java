@@ -80,4 +80,18 @@ public class ChainList<T> {
     public boolean isEmpty(){
         return referenceEntry == null ? true:false;
     }
+
+    @Override
+    public String toString() {
+        String returnString = "";
+        Node<T> nodeAuxiliar = referenceEntry;
+        for (int i = 0; i < this.size() ; i++) {
+            returnString += "Node{" +
+                    "content=" + nodeAuxiliar.getContent() +
+                    "---->}";
+            nodeAuxiliar = nodeAuxiliar.getNextNode();
+        }
+        returnString += "null";
+        return returnString;
+    }
 }
