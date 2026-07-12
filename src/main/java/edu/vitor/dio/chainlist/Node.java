@@ -2,29 +2,29 @@ package edu.vitor.dio.chainlist;
 
 public class Node<T>{
 
-    private T conteudo;
+    private T content;
     private Node<T> nextNode;
 
     public Node(){
         this.nextNode = null;
     }
 
-    public Node(T conteudo){
+    public Node(T content){
         this.nextNode = null;
-        this.conteudo = conteudo;
+        this.content = content;
     }
 
-    public Node(T conteudo, Node nextNode){
-        this.conteudo = conteudo;
+    public Node(T content, Node nextNode){
+        this.content = content;
         this.nextNode = nextNode;
     }
 
-    public T getConteudo() {
-        return conteudo;
+    public T getContent() {
+        return content;
     }
 
-    public void setConteudo(T conteudo) {
-        this.conteudo = conteudo;
+    public void setContent(T content) {
+        this.content = content;
     }
 
     public Node<T> getNextNode() {
@@ -38,13 +38,13 @@ public class Node<T>{
     @Override
     public String toString() {
         return "Node{" +
-                "conteudo=" + conteudo +
+                "content=" + content +
                 '}';
     }
 
     public String toStringChain(){
         String str = "Node{" +
-                "conteudo=" + conteudo +
+                "content=" + content +
                 '}';
 
         if(nextNode != null){

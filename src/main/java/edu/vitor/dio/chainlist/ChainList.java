@@ -35,11 +35,27 @@ public class ChainList<T> {
         return returnNode;
     }
 
+    public T get(int index){
+        return getNode(index).getContent();
+    }
+
     private void indexValidation(int index){
         if (index >= size()){
             int lastIndex = size() - 1;
             throw new IndexOutOfBoundsException("Não existe conteudo no indice " + index + " desta lista. Esta lista só vai até o indice " + lastIndex + ".");
         }
+    }
+
+    public T remove(int index){
+        Node<T> nodePivot = this.getNode(index);
+        if (index == 0){
+            referenceEntry = nodePivot.getNextNode();
+            return nodePivot.getContent();
+        }
+
+        Node<T> previousNode = getNode(index - 1);
+        previousNode.setNextNode(nodePivot.getNextNode());
+        return nodePivot.getContent();
     }
 
     public int size(){
