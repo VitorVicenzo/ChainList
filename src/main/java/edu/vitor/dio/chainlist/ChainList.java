@@ -8,15 +8,15 @@ public class ChainList<T> {
         this.referenceEntry = null;
     }
 
-    public void add(T conteudo){
-        Node<T> newNode = new Node<>(conteudo);
+    public void add(T content){
+        Node<T> newNode = new Node<>(content);
         if(this.isEmpty()){
             referenceEntry = newNode;
             return;
         }
 
         Node<T> nodeAuxiliar = referenceEntry;
-        for (int i = 0; i < this.size() ; i++) {
+        for (int i = 0; i < this.size()-1 ; i++) {
             nodeAuxiliar = nodeAuxiliar.getNextNode();
         }
 
@@ -28,7 +28,7 @@ public class ChainList<T> {
         indexValidation(index);
         Node<T> nodeAuxiliar = referenceEntry;
         Node<T> returnNode = null;
-        for (int i = 0; i < this.size(); i++) {
+        for (int i = 0; i <= index; i++) {
             returnNode = nodeAuxiliar;
             nodeAuxiliar = nodeAuxiliar.getNextNode();
         }
